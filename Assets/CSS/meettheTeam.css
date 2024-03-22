@@ -1,0 +1,59 @@
+.meetTheTeamPanelDiv {
+    max-width: 1350px;
+    margin: 0 auto;
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)) ,url(../images/banner1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 10px;
+}
+
+.meetTheTeamPanelDiv > h1 {
+    color: var(--white);
+    font-size: var(--headerfont);
+}
+
+.meetTheTeamPanelDiv > p {
+    color: white;
+    max-width: 560px;
+    text-align: center;
+}
+
+
+.ExpertProfilePanel {
+    display:flex;
+    gap: 70px;
+    text-align: center;
+    color: var(--white);
+}
+.ExpertProfile{
+    display: grid;
+    gap: 20px;
+}
+.ExpertProfileImage > img{
+    max-width: 100px;
+}
+.ExpertProfiledetails {
+    line-height: 25px;
+}
+
+.ExpertProfiledetails> h3 {
+    font-size: var(--h3fontsize);
+}
+
+.socialmediaProfile > .fa {
+    text-decoration: none;
+    color: var(--white);
+    background: var(--btnbackground);
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    padding-top: 5px;
+    margin: 5px ;
+}
+

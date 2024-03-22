@@ -1,0 +1,108 @@
+.desalOfTheDayPaneldiv {
+    max-width: 1350px;
+    margin: 120px auto;
+    display: grid;
+    gap: 80px;
+    justify-items: center;
+
+}
+.desalOfTheDayTitePanel {
+display: flex;
+justify-content: space-between;
+width: 100%;
+}
+
+.desalOfTheDayTite  {
+    display: grid;
+    gap: 20px;
+}
+
+
+.desalOfTheDayTite > h1 {
+    font-size: var(--headerfont);
+}
+
+.desalOfTheDayTite > p {
+    max-width: 560px;
+    color: var(--txtcolor);
+}
+
+
+.dealtimePanel{
+    display: flex;
+    gap: 20px;
+    justify-content:center;
+    
+}
+.dealtimedot {
+    margin-top:10px;
+    font-weight: bolder;
+}
+
+.dealTime > h1{
+    font-size: var(--headerfont);
+}
+
+.dealTime > p {
+    font-size: small;
+    color: var(--txtcolor);
+}
+
+
+.dODProductPanel {
+    width: 100%;
+}
+.doDproductpaneldiv {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 30px;
+
+
+}
+
+.DODProductsdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgb(217, 228, 239);
+    border-radius: 5px;
+    min-height: 350px;
+
+}
+
+.DODImage > img {
+    max-height: 100px;
+    max-width: auto;
+}
+
+.DODProductsdiv > hr {
+    width: 70%;
+}
+
+.DODProductsdiv  > h3 {
+    font-size: var(--h3fontsize);
+}
+
+.doDButton > a > button {
+    
+    background: var(--btnbackground);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.DODProductsdiv > a {
+    text-decoration: none;
+    color: var(--btnbackground);
+    font-weight: 600;
+}
+
+
+
+

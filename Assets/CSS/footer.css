@@ -1,0 +1,78 @@
+.footerPaneldiv {
+    max-width: 100%;
+    background: black;
+    display: grid;
+    gap: 30px;
+    justify-items: center;
+    align-content: center;
+    min-height: 300px;
+}
+
+.footerlogopanel {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+    
+}
+
+.footerlogoimg > img {
+    max-width: 40px;
+}
+
+.footerlogopanel > h1 {
+    color: var(--white);
+    font-size: var(--headerfont);
+}
+
+.fotermenupanel > ul {
+    display: flex;
+    gap: 50px
+}
+
+.fotermenupanel > ul > li {
+    list-style: none;
+}
+
+.fotermenupanel > ul > li > a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.footerSocialMeadiaPanel > a {
+    text-decoration: none;
+    
+}
+
+.footerSocialMeadiaPanel > .fa {
+    color: white;
+    font-size: 24px;
+    margin-right: 20px;
+
+}
+
+.footerSocialMeadiaPanel > .fa-facebook {
+    color: #166ddd;
+    background: white;
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    text-align: center;
+    padding-top: 3px;
+}
+
+.footerSocialMeadiaPanel > .fa-youtube {
+    background: #bb0000;
+    color: white;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-top: 3px;
+    border-radius: 2px;
+  }
+  
+
+
+
+
+
