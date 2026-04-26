@@ -38,6 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* -----------------------------------------------------
+       2b. Inject a search form inside the mobile menu so
+       small-phone users can search too.
+    ----------------------------------------------------- */
+    if (menu) {
+        menu.insertAdjacentHTML('beforeend', `
+            <form class="mobile-search-form mt-3 flex items-center bg-slate-50 rounded-full pl-4 pr-1 py-1 border border-slate-200 focus-within:ring-2 focus-within:ring-brand-500/30">
+                <input type="text" placeholder="Search fruits…" class="bg-transparent text-sm flex-1 outline-none placeholder:text-slate-400 px-2">
+                <button type="submit" class="bg-brand-500 hover:bg-brand-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition shrink-0" aria-label="Search">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        `);
+    }
+
+
+    /* -----------------------------------------------------
        3. Countdown timer — 7 days from page load
     ----------------------------------------------------- */
     const target = new Date();
@@ -151,22 +167,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* -----------------------------------------------------
-       6. Search form
+       6. Search forms (desktop header + mobile menu)
     ----------------------------------------------------- */
-    const searchForm  = document.getElementById('searchForm');
-    const searchInput = document.getElementById('searchInput');
-    if (searchForm && searchInput) {
-        searchForm.addEventListener('submit', e => {
+    const searchForms = [
+        document.getElementById('searchForm'),
+        document.querySelector('.mobile-search-form'),
+    ].filter(Boolean);
+
+    searchForms.forEach(form => {
+        form.addEventListener('submit', e => {
             e.preventDefault();
-            const q = searchInput.value.trim();
+            const input = form.querySelector('input[type="text"]');
+            const q = input ? input.value.trim() : '';
             if (!q) {
                 showToast('Type a fruit name to search.');
                 return;
             }
             showToast(`🔍 Searching for "${q}"…`);
-            searchInput.value = '';
+            if (input) input.value = '';
+            // If submitted from the mobile menu, close it after.
+            if (form.classList.contains('mobile-search-form')) {
+                if (menu)    menu.classList.add('hidden');
+                if (menuBtn) menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+            }
         });
-    }
+    });
 
 
     /* -----------------------------------------------------
