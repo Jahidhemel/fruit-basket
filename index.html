@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fruit Burst — handpicked organic fruits delivered fresh to your doorstep. Shop the season's best produce online.">
+    <title>Fruit Burst — Fresh, Organic Fruits Delivered Daily</title>
+    <link rel="icon" type="image/png" href="Assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50:  '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        },
+                        accent: {
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                    },
+                    boxShadow: {
+                        soft: '0 10px 30px -12px rgba(34, 197, 94, 0.25)',
+                        card: '0 12px 28px -8px rgba(0, 0, 0, 0.12)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%':   { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .text-balance { text-wrap: balance; }
+        /* Hide scrollbar but keep scrolling */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100" id="home">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3">
+                    <img src="Assets/images/logo.png" alt="Fruit Burst logo" class="h-10 w-10 object-contain">
+                    <span class="text-xl sm:text-2xl font-extrabold tracking-tight">
+                        Fruit <span class="text-brand-500">Burst</span>
+                    </span>
+                </a>
+
+                <!-- Desktop nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home"  class="text-sm font-medium text-slate-700 hover:text-brand-500 transition">Home</a>
+                    <a href="#deal"  class="text-sm font-medium text-slate-700 hover:text-brand-500 transition">Shop</a>
+                    <a href="#team"  class="text-sm font-medium text-slate-700 hover:text-brand-500 transition">About Us</a>
+                    <a href="#why"   class="text-sm font-medium text-slate-700 hover:text-brand-500 transition">Why Us</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-700 hover:text-brand-500 transition">Contact</a>
+                </nav>
+
+                <!-- Search + Mobile menu -->
+                <div class="flex items-center gap-3">
+                    <form id="searchForm" class="hidden sm:flex items-center bg-slate-50 rounded-full pl-4 pr-1 py-1 border border-slate-200 focus-within:ring-2 focus-within:ring-brand-500/30">
+                        <input id="searchInput" type="text" placeholder="Search fruits…" class="bg-transparent text-sm w-32 lg:w-44 outline-none placeholder:text-slate-400">
+                        <button type="submit" class="bg-brand-500 hover:bg-brand-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition" aria-label="Search">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                    <button id="mobileMenuBtn" class="md:hidden text-2xl text-slate-700 p-2" aria-label="Open menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile nav (collapsible) -->
+            <nav id="mobileMenu" class="md:hidden hidden pb-4 space-y-1">
+                <a href="#home"    class="mobile-link block px-4 py-2 rounded-lg hover:bg-brand-50 text-slate-700 hover:text-brand-600">Home</a>
+                <a href="#deal"    class="mobile-link block px-4 py-2 rounded-lg hover:bg-brand-50 text-slate-700 hover:text-brand-600">Shop</a>
+                <a href="#team"    class="mobile-link block px-4 py-2 rounded-lg hover:bg-brand-50 text-slate-700 hover:text-brand-600">About Us</a>
+                <a href="#why"     class="mobile-link block px-4 py-2 rounded-lg hover:bg-brand-50 text-slate-700 hover:text-brand-600">Why Us</a>
+                <a href="#contact" class="mobile-link block px-4 py-2 rounded-lg hover:bg-brand-50 text-slate-700 hover:text-brand-600">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-orange-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Copy -->
+                <div class="text-center lg:text-left animate-fade-in-up">
+                    <span class="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        Fresh stock arrives daily
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 text-balance">
+                        Exotic tastes at your <span class="text-brand-500">doorstep.</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-slate-600 text-balance max-w-lg mx-auto lg:mx-0">
+                        Hand-picked organic fruits, sourced from farms we trust and delivered to your door within 24 hours of harvest.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#deal" class="cta-btn inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-3.5 rounded-full shadow-soft transition">
+                            Shop Now <i class="fa fa-arrow-right"></i>
+                        </a>
+                        <a href="#why" class="inline-flex items-center gap-2 text-slate-700 font-semibold px-6 py-3.5 hover:text-brand-500 transition">
+                            Learn more <i class="fa fa-chevron-right text-xs"></i>
+                        </a>
+                    </div>
+                    <div class="mt-10 flex items-center gap-6 text-sm text-slate-500 justify-center lg:justify-start">
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-truck text-brand-500"></i> Free delivery $50+
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa leaf text-brand-500"></i> 100% organic
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured fruits floating cluster -->
+                <div class="relative">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+                        <div class="featured-fruit bg-white rounded-3xl p-4 shadow-card hover:-translate-y-1 transition-transform">
+                            <img src="Assets/images/fruit1.png" alt="Red Grapes" class="w-full h-28 sm:h-32 object-contain">
+                            <p class="mt-3 text-center font-semibold text-slate-700">Red Grapes</p>
+                        </div>
+                        <div class="featured-fruit bg-white rounded-3xl p-4 shadow-card hover:-translate-y-1 transition-transform sm:translate-y-6">
+                            <img src="Assets/images/fruit2.png" alt="Orange" class="w-full h-28 sm:h-32 object-contain">
+                            <p class="mt-3 text-center font-semibold text-slate-700">Orange</p>
+                        </div>
+                        <div class="featured-fruit bg-white rounded-3xl p-4 shadow-card hover:-translate-y-1 transition-transform">
+                            <img src="Assets/images/fruit3.png" alt="Mango" class="w-full h-28 sm:h-32 object-contain">
+                            <p class="mt-3 text-center font-semibold text-slate-700">Mango</p>
+                        </div>
+                        <div class="featured-fruit bg-white rounded-3xl p-4 shadow-card hover:-translate-y-1 transition-transform sm:translate-y-6">
+                            <img src="Assets/images/fruit4.png" alt="Strawberry" class="w-full h-28 sm:h-32 object-contain">
+                            <p class="mt-3 text-center font-semibold text-slate-700">Strawberry</p>
+                        </div>
+                        <div class="featured-fruit bg-white rounded-3xl p-4 shadow-card hover:-translate-y-1 transition-transform col-span-2 sm:col-span-1">
+                            <img src="Assets/images/fruit5.png" alt="Pomegranate" class="w-full h-28 sm:h-32 object-contain">
+                            <p class="mt-3 text-center font-semibold text-slate-700">Pomegranate</p>
+                        </div>
+                    </div>
+                    <!-- Decorative blob -->
+                    <div class="absolute -z-10 -top-10 -right-10 w-72 h-72 bg-brand-200 rounded-full blur-3xl opacity-40"></div>
+                    <div class="absolute -z-10 -bottom-10 -left-10 w-72 h-72 bg-orange-200 rounded-full blur-3xl opacity-40"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================
+         DEAL OF THE DAY
+         ========================================= -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-white" id="deal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Title + countdown -->
+            <div class="grid lg:grid-cols-2 gap-10 items-end">
+                <div>
+                    <span class="inline-block text-xs font-bold uppercase tracking-widest text-accent-500">Limited time</span>
+                    <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+                        Deal of the Day
+                    </h2>
+                    <p class="mt-4 text-slate-600 max-w-md">
+                        A handful of our best-selling fruits, picked at peak ripeness and discounted just for today. Move fast — when the timer hits zero, the deal's gone.
+                    </p>
+                </div>
+
+                <!-- Countdown timer -->
+                <div id="countdown" class="grid grid-cols-4 gap-3 sm:gap-4">
+                    <div class="bg-gradient-to-br from-brand-500 to-brand-600 text-white rounded-2xl p-4 sm:p-5 text-center shadow-soft">
+                        <div class="text-3xl sm:text-4xl font-extrabold tabular-nums" data-unit="days">07</div>
+                        <div class="text-xs uppercase tracking-wider mt-1 opacity-90">Days</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-brand-500 to-brand-600 text-white rounded-2xl p-4 sm:p-5 text-center shadow-soft">
+                        <div class="text-3xl sm:text-4xl font-extrabold tabular-nums" data-unit="hours">00</div>
+                        <div class="text-xs uppercase tracking-wider mt-1 opacity-90">Hours</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-brand-500 to-brand-600 text-white rounded-2xl p-4 sm:p-5 text-center shadow-soft">
+                        <div class="text-3xl sm:text-4xl font-extrabold tabular-nums" data-unit="minutes">00</div>
+                        <div class="text-xs uppercase tracking-wider mt-1 opacity-90">Minutes</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-brand-500 to-brand-600 text-white rounded-2xl p-4 sm:p-5 text-center shadow-soft">
+                        <div class="text-3xl sm:text-4xl font-extrabold tabular-nums" data-unit="seconds">00</div>
+                        <div class="text-xs uppercase tracking-wider mt-1 opacity-90">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product cards -->
+            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Apple -->
+                <article class="group bg-white border border-slate-100 rounded-3xl p-5 hover:shadow-card hover:-translate-y-1 transition">
+                    <div class="aspect-square bg-brand-50 rounded-2xl flex items-center justify-center overflow-hidden">
+                        <img src="Assets/images/fruit6.png" alt="Apples" class="w-3/4 h-3/4 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-bold text-slate-800">Honeycrisp Apples</h3>
+                        <div class="flex items-center gap-1 mt-1 text-amber-400 text-sm">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            <span class="text-slate-400 ml-1">(124)</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-3">
+                            <p class="text-lg font-bold text-brand-600">$12.90 <span class="text-xs font-medium text-slate-400 line-through ml-1">$18.85</span></p>
+                            <button class="demo-btn w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-600 transition" aria-label="Add to cart">
+                                <i class="fa fa-shopping-cart text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Orange -->
+                <article class="group bg-white border border-slate-100 rounded-3xl p-5 hover:shadow-card hover:-translate-y-1 transition">
+                    <div class="aspect-square bg-orange-50 rounded-2xl flex items-center justify-center overflow-hidden">
+                        <img src="Assets/images/fruit7.png" alt="Oranges" class="w-3/4 h-3/4 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-bold text-slate-800">Valencia Oranges</h3>
+                        <div class="flex items-center gap-1 mt-1 text-amber-400 text-sm">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
+                            <span class="text-slate-400 ml-1">(98)</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-3">
+                            <p class="text-lg font-bold text-brand-600">$8.50 <span class="text-xs font-medium text-slate-400 line-through ml-1">$11.20</span></p>
+                            <button class="demo-btn w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-600 transition" aria-label="Add to cart">
+                                <i class="fa fa-shopping-cart text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Dragon Fruit -->
+                <article class="group bg-white border border-slate-100 rounded-3xl p-5 hover:shadow-card hover:-translate-y-1 transition">
+                    <div class="aspect-square bg-pink-50 rounded-2xl flex items-center justify-center overflow-hidden">
+                        <img src="Assets/images/fruit8.png" alt="Dragon Fruit" class="w-3/4 h-3/4 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-bold text-slate-800">Red Dragon Fruit</h3>
+                        <div class="flex items-center gap-1 mt-1 text-amber-400 text-sm">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            <span class="text-slate-400 ml-1">(56)</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-3">
+                            <p class="text-lg font-bold text-brand-600">$14.20 <span class="text-xs font-medium text-slate-400 line-through ml-1">$19.00</span></p>
+                            <button class="demo-btn w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-600 transition" aria-label="Add to cart">
+                                <i class="fa fa-shopping-cart text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Banana -->
+                <article class="group bg-white border border-slate-100 rounded-3xl p-5 hover:shadow-card hover:-translate-y-1 transition">
+                    <div class="aspect-square bg-yellow-50 rounded-2xl flex items-center justify-center overflow-hidden">
+                        <img src="Assets/images/fruit9.png" alt="Bananas" class="w-3/4 h-3/4 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-bold text-slate-800">Cavendish Bananas</h3>
+                        <div class="flex items-center gap-1 mt-1 text-amber-400 text-sm">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+                            <span class="text-slate-400 ml-1">(212)</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-3">
+                            <p class="text-lg font-bold text-brand-600">$5.90 <span class="text-xs font-medium text-slate-400 line-through ml-1">$8.50</span></p>
+                            <button class="demo-btn w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-600 transition" aria-label="Add to cart">
+                                <i class="fa fa-shopping-cart text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Shop all -->
+            <div class="text-center mt-12">
+                <button class="demo-btn inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold px-8 py-3.5 rounded-full transition">
+                    Shop all fruits <i class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================
+         MEET THE TEAM
+         ========================================= -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-brand-50 to-white" id="team">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-brand-600">Our People</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+                    Meet the team
+                </h2>
+                <p class="mt-4 text-slate-600 text-balance">
+                    The people behind every box. Pickers, sourcers, and quality leads who make sure only the best fruits reach your kitchen.
+                </p>
+            </div>
+
+            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Awlad -->
+                <article class="bg-white rounded-3xl p-6 text-center shadow-card hover:-translate-y-1 transition">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-brand-100">
+                        <img src="Assets/images/member1.png" alt="Awlad Hossain" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-5 font-bold text-lg text-slate-800">Awlad Hossain</h3>
+                    <p class="text-sm text-brand-600 font-medium">Head Sourcer</p>
+                    <div class="flex justify-center gap-3 mt-4">
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </article>
+
+                <!-- Safia -->
+                <article class="bg-white rounded-3xl p-6 text-center shadow-card hover:-translate-y-1 transition">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-brand-100">
+                        <img src="Assets/images/member2.png" alt="Safia Chowdhury" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-5 font-bold text-lg text-slate-800">Safia Chowdhury</h3>
+                    <p class="text-sm text-brand-600 font-medium">Quality Lead</p>
+                    <div class="flex justify-center gap-3 mt-4">
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </article>
+
+                <!-- Rokib -->
+                <article class="bg-white rounded-3xl p-6 text-center shadow-card hover:-translate-y-1 transition">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-brand-100">
+                        <img src="Assets/images/member3.png" alt="Rokib Ahmed" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-5 font-bold text-lg text-slate-800">Rokib Ahmed</h3>
+                    <p class="text-sm text-brand-600 font-medium">Logistics Manager</p>
+                    <div class="flex justify-center gap-3 mt-4">
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </article>
+
+                <!-- Chaity -->
+                <article class="bg-white rounded-3xl p-6 text-center shadow-card hover:-translate-y-1 transition">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-brand-100">
+                        <img src="Assets/images/member4.png" alt="Chaity Rahman" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-5 font-bold text-lg text-slate-800">Chaity Rahman</h3>
+                    <p class="text-sm text-brand-600 font-medium">Customer Care</p>
+                    <div class="flex justify-center gap-3 mt-4">
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="demo-link w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-500 hover:text-white flex items-center justify-center transition" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================
+         WHY CHOOSE US (BENTO GRID)
+         ========================================= -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-white" id="why">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-brand-600">Why Fruit Burst</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+                    Six reasons people stay
+                </h2>
+                <p class="mt-4 text-slate-600 text-balance">
+                    Six small details that make a big difference in every box that lands on your doorstep.
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-brand-50 rounded-3xl p-7 hover:shadow-soft transition">
+                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-brand-500 text-2xl mb-5">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Dedicated Team</h3>
+                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                        Real people pick, pack, and check every order. You'll get a name and a number — not a chatbot.
+                    </p>
+                </div>
+                <div class="bg-orange-50 rounded-3xl p-7 hover:shadow-card transition">
+                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-accent-500 text-2xl mb-5">
+                        <i class="fa fa-leaf"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Fresh is Best</h3>
+                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                        Everything we ship was harvested within the last 48 hours. If it isn't ripe yet, we don't pick it.
+                    </p>
+                </div>
+                <div class="bg-pink-50 rounded-3xl p-7 hover:shadow-card transition">
+                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-pink-500 text-2xl mb-5">
+                        <i class="fa fa-gift"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Gift Certificates</h3>
+                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                        Send a fruit box to someone you love. Choose the date, leave a note, and we'll handle the rest.
+                    </p>
+                </div>
+                <div class="bg-blue-50 rounded-3xl p-7 hover:shadow-card transition">
+                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-blue-500 text-2xl mb-5">
+                        <i class="fa fa-link"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Integrated Suppliers</h3>
+                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                        We partner with 30+ farms across 8 regions, so seasonal fruits are always in stock and never overpriced.
+                    </p>
+                </div>
+                <div class="bg-emerald-50 rounded-3xl p-7 hover:shadow-card transition">
+                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-emerald-500 text-2xl mb-5">
+                        <i class="fa fa-recycle"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Sustainable Practice</h3>
+                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                        Compostable packaging, carbon-neutral delivery routes, and zero plastic in our boxes. Always.
+                    </p>
+                </div>
+                <div class="bg-amber-50 rounded-3xl p-7 hover:shadow-card transition">
+                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-amber-500 text-2xl mb-5">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Member Benefits</h3>
+                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                        Free delivery, early access to seasonal drops, and a welcome box on your first order. No catch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================
+         NEWSLETTER
+         ========================================= -->
+    <section class="py-14 sm:py-20 bg-gradient-to-r from-brand-500 to-brand-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                Get fresh deals in your inbox
+            </h2>
+            <p class="mt-3 text-brand-50 max-w-md mx-auto">
+                One email a week. No spam, just hand-picked deals and seasonal recipes.
+            </p>
+            <form id="newsletterForm" class="mt-7 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input id="newsletterEmail" type="email" placeholder="you@example.com" required
+                    class="flex-1 rounded-full px-5 py-3 text-slate-800 outline-none focus:ring-4 focus:ring-white/30 placeholder:text-slate-400">
+                <button type="submit" class="bg-slate-900 hover:bg-slate-700 px-6 py-3 rounded-full font-semibold transition">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer class="bg-slate-900 text-slate-300" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="grid md:grid-cols-3 gap-10 items-start">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3">
+                        <img src="Assets/images/logo.png" alt="Fruit Burst" class="h-10 w-10 object-contain bg-white rounded-full p-1">
+                        <span class="text-xl font-extrabold text-white">
+                            Fruit <span class="text-brand-500">Burst</span>
+                        </span>
+                    </div>
+                    <p class="mt-4 text-sm leading-relaxed">
+                        Fresh, organic fruits delivered to your doorstep — picked the same day, packed with care.
+                    </p>
+                </div>
+                <!-- Links -->
+                <nav class="grid grid-cols-2 gap-y-2 text-sm">
+                    <a href="#home" class="hover:text-brand-500 transition">Home</a>
+                    <a href="#deal" class="hover:text-brand-500 transition">Shop</a>
+                    <a href="#team" class="hover:text-brand-500 transition">About Us</a>
+                    <a href="#why"  class="hover:text-brand-500 transition">Why Us</a>
+                    <a href="#contact" class="hover:text-brand-500 transition">Support</a>
+                    <a href="#contact" class="hover:text-brand-500 transition">My Account</a>
+                </nav>
+                <!-- Socials -->
+                <div>
+                    <p class="text-sm font-semibold text-white uppercase tracking-wider">Follow us</p>
+                    <div class="flex gap-3 mt-4">
+                        <a href="https://www.linkedin.com/in/md-jahidul-islam-hemel" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center transition"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/jahid.hemel" target="_blank" rel="noopener" aria-label="Facebook" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center transition"><i class="fa fa-facebook"></i></a>
+                        <a href="mailto:jahidhemel@gmail.com" aria-label="Email" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center transition"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-10 border-slate-800">
+            <p class="text-sm text-center text-slate-500">
+                &copy; <span id="year">2026</span> Fruit Burst. Built by
+                <a href="https://jahidhemel.github.io" target="_blank" rel="noopener" class="text-brand-500 hover:text-brand-400 font-medium">Md. Jahidul Islam Hemel</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="Assets/js/main.js" defer></script>
+</body>
+</html>
